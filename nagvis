@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+    <link rel="shortcut icon" href="/nagvis/frontend/nagvis-js/images/internal/favicon.png" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>NagVis 1.8</title>
+    <meta name="viewport" content="width=480, initial-scale=0.6666, maximum-scale=1.0, minimum-scale=0.6666" />
+
+        <script type="text/javascript" src="/nagvis/frontend/nagvis-js/js/NagVisCompressed.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/nagvis/userfiles/templates/default.css" />
+    
+</head>
+<body class="main">
+
+<!-- Start rotation properties -->
+<script type="text/javascript">
+oViewProperties = {};
+oRotationProperties = {"rotationEnabled":0,"nextStepUrl":"","nextStepTime":""};
+jscolor.dir = '/nagvis/frontend/nagvis-js/images/jscolor/';
+</script>
+
+<!-- Start header menu -->
+<script type="text/javascript" src="/nagvis/userfiles/templates/default.header.js"></script>
+<script type="text/javascript">var g_map_names = ["demo-automap","demo-automap2","demo-geomap","demo-germany","demo-ham-racks","demo-load","demo-muc-srv1","demo-overview","linuxproblems","rp"];</script>
+
+<div id="headershow" class="header"><a href="#" onclick="headerToggle(true)"><img src="/nagvis/userfiles/images/templates/default.header_show.png" alt="Show header menu" /></a></div>
+<div id="header" class="header">
+<ul class="head">
+  <li><a href="#" onclick="headerToggle(true)"><img src="/nagvis/userfiles/images/templates/default.header_hide.png" alt="Hide header menu" /></a></li>
+    <li class="logo"><a href="http://www.nagvis.org/"><img src="/nagvis/frontend/nagvis-js/images//internal/logo_96x25.png" alt="NagVis" /></a></li>
+    <li onmouseover="!sidebarOpen() ? showMapDropdown() : void(0)" class="dropdown">
+        <span id="views-ddheader" onclick="toggleSidebar(true)">Open <img src="/nagvis/userfiles/images/templates/default.header_down.png" alt="&#8711;" /></span>
+        
+        <ul id="views-ddcontent">
+                          <li><a href="/nagvis/frontend/nagvis-js/index.php">Visao geral</a></li>
+            
+                          <li class="spacer"><hr /></li>
+                      <li class="lvl1"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-overview">Demo Overview</a> </li>
+                    <li class="lvl2"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-germany">Demo: 0 Overview Germany</a> </li>
+            <li class="lvl2"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-ham-racks">Demo: 1 Datacenter Hamburg</a> </li>
+            <li class="lvl2"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-load">Demo: 2 Overview System Load</a> </li>
+            <li class="lvl2"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-muc-srv1">Demo: 3 Server - muc-srv1</a> </li>
+            <li class="lvl2"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-geomap">Demo: 4 Geomap</a> </li>
+            <li class="lvl2"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-automap">Demo: 5 Automap</a> </li>
+            <li class="lvl2"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-automap2">Demo: 6 Automap 2</a> </li>
+            
+        <li class="lvl1"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=linuxproblems">linuxproblems</a> </li>
+                    <li class="lvl2"><a href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=rp">Server - rp</a> </li>
+            
+        
+        
+            
+            <li class="spacer underline"></li>
+        </ul>
+    </li>
+    
+    
+    
+</ul>
+<ul class="head right">
+    <li><div id="refreshCounterHead"></div></li>
+    <li id="editIndicator" style="display:none">
+        <span>Edit Mode!</span>
+    </li>
+    <li onmouseover="ddMenu('user',1)" class="dropdown">
+        <span id="user-ddheader">User menu<img src="/nagvis/userfiles/images/templates/default.header_down.png" alt="&#8711;" /></span>
+        <ul id="user-ddcontent">
+        	<li><a href="#">Logged in: user</a></li>
+        	
+        	
+        	
+            
+            <li class="spacer underline"></li>
+        </ul>
+    </li>
+    <li onmouseover="ddMenu('language',1)" class="dropdown">
+        <span id="language-ddheader">Choose Language <img src="/nagvis/userfiles/images/templates/default.header_down.png" alt="&#8711;" /></span>
+        <ul id="language-ddcontent">
+            <li><a href="/nagvis/frontend/nagvis-js/index.php?lang=de_DE">de_DE</a></li><li><a href="/nagvis/frontend/nagvis-js/index.php?lang=en_US">en_US</a></li><li><a href="/nagvis/frontend/nagvis-js/index.php?lang=es_ES">es_ES</a></li><li><a href="/nagvis/frontend/nagvis-js/index.php?lang=fr_FR">fr_FR</a></li><li><a href="/nagvis/frontend/nagvis-js/index.php?lang=pt_BR">pt_BR</a></li>
+          	<li class="spacer underline"></li>
+        </ul>
+    </li>
+    <li onmouseover="ddMenu('support',1)" class="dropdown">
+        <span id="support-ddheader">Precisa de ajuda? <img src="/nagvis/userfiles/images/templates/default.header_down.png" alt="&#8711;" /></span>
+        <ul id="support-ddcontent">
+            <li><a href="/nagvis/docs/en_US/index.html">Documentacao</a></li>
+            <li><a href="http://www.monitoring-portal.org/wbb/index.php?page=Board&amp;boardID=42">Forum de suporte</a></li>
+            <li><a href="/nagvis/frontend/nagvis-js/index.php?mod=Info" class="underline">Informacoes de suporte sobre Nagvis</a></li>
+        </ul>
+    </li>
+    <li style="width:120px"></li>
+</ul>
+</div>
+
+
+<div id="sidebar">
+<ul>
+    <li class="spacerbottom"><div><a href="/nagvis/frontend/nagvis-js/index.php">Visao geral</a></div></li>
+    <li class="closed"><div><a id="sb-maps" class="title" href="#" onclick="sidebarToggleSubtree(this);return false;">Maps</a></div>
+        <ul id="sb-maps-childs" style="display:none;"><li class="lvl1 closed parent"><div>
+<div class="statediv" id="side-state-demo-overview"></div>
+<a class=open href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-overview">&gt;</a>
+<a class="title title " onclick="sidebarToggleSubtree(this);return false" id="sb-demo-overview"
+href="#">Demo Overview</a>
+</div><ul id="sb-demo-overview-childs" style="display:none;"><li class="lvl2"><div>
+<div class="statediv" id="side-state-demo-germany"></div>
+
+<a class="  " 
+href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-germany">Demo: 0 Overview Germany</a>
+</div></li><li class="lvl2"><div>
+<div class="statediv" id="side-state-demo-ham-racks"></div>
+
+<a class="  " 
+href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-ham-racks">Demo: 1 Datacenter Hamburg</a>
+</div></li><li class="lvl2"><div>
+<div class="statediv" id="side-state-demo-load"></div>
+
+<a class="  " 
+href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-load">Demo: 2 Overview System Load</a>
+</div></li><li class="lvl2"><div>
+<div class="statediv" id="side-state-demo-muc-srv1"></div>
+
+<a class="  " 
+href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-muc-srv1">Demo: 3 Server - muc-srv1</a>
+</div></li><li class="lvl2"><div>
+<div class="statediv" id="side-state-demo-geomap"></div>
+
+<a class="  " 
+href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-geomap">Demo: 4 Geomap</a>
+</div></li><li class="lvl2"><div>
+<div class="statediv" id="side-state-demo-automap"></div>
+
+<a class="  " 
+href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-automap">Demo: 5 Automap</a>
+</div></li><li class="lvl2"><div>
+<div class="statediv" id="side-state-demo-automap2"></div>
+
+<a class="  " 
+href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=demo-automap2">Demo: 6 Automap 2</a>
+</div></li>
+</ul></li><li class="lvl1 closed parent"><div>
+<div class="statediv" id="side-state-linuxproblems"></div>
+<a class=open href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=linuxproblems">&gt;</a>
+<a class="title title " onclick="sidebarToggleSubtree(this);return false" id="sb-linuxproblems"
+href="#">linuxproblems</a>
+</div><ul id="sb-linuxproblems-childs" style="display:none;"><li class="lvl2"><div>
+<div class="statediv" id="side-state-rp"></div>
+
+<a class="  " 
+href="/nagvis/frontend/nagvis-js/index.php?mod=Map&amp;act=view&amp;show=rp">Server - rp</a>
+</div></li>
+</ul></li>
+</ul>
+    </li>
+        <li class="closed spacertop"><div><a id="sb-rotations" class="title" href="#" onclick="sidebarToggleSubtree(this);return false">Rotations</a></div>
+        <ul id="sb-rotations-childs" style="display:none;">
+                    <li class=lvl1><div><a href="/nagvis/frontend/nagvis-js/index.php?mod=Rotation&act=view&show=demo">demo</a></div></li>
+        
+        </ul>
+    </li>
+    
+</ul>
+</div>
+<div id="headerspacer"></div>
+<script type="text/javascript">addDOMLoadEvent(function(){sidebarDraw(); headerDraw();});</script>
+
+
+<!-- Start content -->
+<!--[if IE]>
+<style type=”text/css”>
+div.infopage a:hover {
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+filter:alpha(opacity=50);
+}
+</style>
+<![endif]-->
+<div id="overview" class="infopage"></div>
+
+<script type="text/javascript">
+oGeneralProperties = {"controls_size":10,"date_format":"Y-m-d H:i:s","path_base":"\/nagvis","path_cgi":"\/nagios\/cgi-bin","path_sounds":"\/nagvis\/userfiles\/sounds\/","path_iconsets":"\/nagvis\/userfiles\/images\/iconsets\/","path_shapes":"\/nagvis\/userfiles\/images\/shapes\/","path_images":"\/nagvis\/frontend\/nagvis-js\/images\/","path_server":"\/nagvis\/server\/core\/ajax_handler.php","internal_title":"NagVis 1.8","header_show_states":1,"zoom_scale_objects":1,"actions":[]};
+oWorkerProperties = {"worker_interval":"10","worker_update_object_states":"30","worker_request_max_params":0,"worker_request_max_length":1900};
+oUserProperties = {"language":"pt_BR"};
+oStates = {"UNREACHABLE":{"normal":9,"stale":6,"ack":6,"ack_bgcolor":"","downtime":6,"downtime_bgcolor":"","bgcolor":"#F1811B","color":"#F1811B","sound":"std_unreachable.mp3"},"DOWN":{"normal":10,"stale":6,"ack":6,"ack_bgcolor":"","downtime":6,"downtime_bgcolor":"","bgcolor":"#FF0000","color":"#FF0000","sound":"std_down.mp3"},"CRITICAL":{"normal":8,"stale":6,"ack":6,"ack_bgcolor":"","downtime":6,"downtime_bgcolor":"","bgcolor":"#FF0000","color":"#FF0000","sound":"std_critical.mp3"},"WARNING":{"normal":7,"stale":5,"ack":5,"ack_bgcolor":"","downtime":5,"downtime_bgcolor":"","bgcolor":"#FFFF00","color":"#FFFF00","sound":"std_warning.mp3"},"UNKNOWN":{"normal":4,"stale":3,"ack":3,"ack_bgcolor":"","downtime":3,"downtime_bgcolor":"","bgcolor":"#FFCC66","color":"#FFCC66","sound":""},"ERROR":{"normal":4,"stale":3,"ack":3,"ack_bgcolor":"","downtime":3,"downtime_bgcolor":"","bgcolor":"#0000FF","color":"#0000FF","sound":""},"UP":{"normal":2,"stale":3,"downtime":2,"bgcolor":"#00FF00","color":"#00FF00","sound":""},"OK":{"normal":1,"stale":2,"downtime":1,"bgcolor":"#00FF00","color":"#00FF00","sound":""},"PENDING":{"normal":0,"downtime":0,"bgcolor":"#C0C0C0","color":"#C0C0C0","sound":""},"UNCHECKED":{"normal":0,"downtime":0,"bgcolor":"#C0C0C0","color":"#C0C0C0","sound":""}};
+g_map_names = ["demo-automap","demo-automap2","demo-geomap","demo-germany","demo-ham-racks","demo-load","demo-muc-srv1","demo-overview","linuxproblems","rp"];
+oLocales = {"more items...":"more items...","Create Object":"Create Object"};
+oFileAges = {"maincfg":1425207680};
+
+// Kick of the worker
+addDOMLoadEvent(function(){runWorker(0, 'overview');});
+
+// This disables the context menu when someone clicked anywhere on the map
+document.onmousedown = contextMouseDown;
+window.onresize = function() { scaleView(); }
+window.onscroll = function() { scaleView(); };
+</script>
+
+
+</body>
+</html>
